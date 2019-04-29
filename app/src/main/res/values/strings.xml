@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Fragments Basic</string>
+    <string name="first_fragment">First fragment</string>
+    <string name="fragment_title_1">Movies</string>
+    <string name="fragment_title_2">Movies</string>
+    <string name="add">Add</string>
+    <string name="movie_count">There are %d movies in the list</string>
+    <string name="not_implemented">Not implemented...</string>
+    <string name="no_data">NO DATA</string>
+    <string name="search">search</string>
+    <string name="see_more">See more…</string>
+    <plurals name="movie_count">
+        <item quantity="one">There is %d movie in the list</item>
+        <item quantity="other">There are %d movies in the list</item>
+    </plurals>
+</resources>
