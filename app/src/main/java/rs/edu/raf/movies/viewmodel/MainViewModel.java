@@ -18,7 +18,7 @@ import java.util.List;
 public class MainViewModel extends AndroidViewModel {
 
     private MediatorLiveData<Resource<List<Movie>>> mMovieMediatorLiveData;
-    private LiveData<Resource<List<Movie>>> mMovieLiveData;
+    private MutableLiveData<Resource<List<Movie>>> mMovieLiveData;
 
     private MovieRepository mMovieRepository;
 
@@ -63,13 +63,9 @@ public class MainViewModel extends AndroidViewModel {
                     filteredList.add(movie);
                 }
             }
-
-
         }
-
-        mMovieLiveData.getValue();
-
-//        mMovieLiveData.setValue(new Resource<>(filteredList, true));
+        Resource<List<Movie>> resource = new Resource<>(filteredList, true);
+        mMovieLiveData.setValue(resource);
     }
 
 }

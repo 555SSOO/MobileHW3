@@ -25,7 +25,7 @@ public class MovieRepository {
         mMovieLiveData = new MutableLiveData<>();
     }
 
-    public LiveData <Resource<List<Movie>>> getMovies() {
+    public MutableLiveData <Resource<List<Movie>>> getMovies() {
         fetchMovieDataFromServer();
         return mMovieLiveData;
     }
