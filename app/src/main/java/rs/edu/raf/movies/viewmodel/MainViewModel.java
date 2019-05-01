@@ -12,6 +12,7 @@ import rs.edu.raf.movies.repository.web.model.Movie;
 import rs.edu.raf.movies.repository.MovieRepository;
 import rs.edu.raf.movies.repository.web.model.Resource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainViewModel extends AndroidViewModel {
@@ -41,4 +42,34 @@ public class MainViewModel extends AndroidViewModel {
         mMovieMediatorLiveData.addSource(mMovieLiveData,
                 listResource -> mMovieMediatorLiveData.setValue(listResource));
     }
+
+    public void setFilter(String filter, String filter_param) {
+        filter = filter.toLowerCase();
+        List<Movie> filteredList = new ArrayList<>();
+        for (Movie movie: mMovieRepository.getMovies().getValue().getData()) {
+
+            if(filter_param.equalsIgnoreCase("title")){
+                if(movie.getmTitle().toLowerCase().startsWith(filter)){
+                    filteredList.add(movie);
+                }
+            }
+            else if (filter_param.equalsIgnoreCase("year")){
+                if(movie.getmYear().toLowerCase().startsWith(filter)){
+                    filteredList.add(movie);
+                }
+            }
+            else if (filter_param.equalsIgnoreCase("score")){
+                if(movie.getmScore().toLowerCase().startsWith(filter)){
+                    filteredList.add(movie);
+                }
+            }
+
+
+        }
+
+        mMovieLiveData.getValue();
+
+//        mMovieLiveData.setValue(new Resource<>(filteredList, true));
+    }
+
 }

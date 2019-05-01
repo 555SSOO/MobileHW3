@@ -1,5 +1,10 @@
 package rs.edu.raf.movies.adapter;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,16 +43,23 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     @Override
     public void onBindViewHolder(@NonNull MovieHolder holder, int position) {
         Movie movie = mDataSet.get(position);
-//        if (movie.getImageUrl().isEmpty()){
-//            holder.mAvatarIv.setImageResource(R.drawable.ic_educator);
-//        } else {
-//            Picasso.get().load(movie.getImageUrl()).into(holder.mAvatarIv);
-//        }
 
         holder.mTitleTv.setText(movie.getmTitle());
         holder.mScoreTv.setText(movie.getmScore());
         holder.mYearTv.setText(movie.getmYear());
         holder.mDirectorTv.setText(movie.getmDirector());
+
+        int score = Integer.valueOf(movie.getmScore());
+        if(score > 90) {
+            holder.mScoreBackgroundIv.setImageResource(R.drawable.circle_green);
+        }
+        else if(score > 66) {
+            holder.mScoreBackgroundIv.setImageResource(R.drawable.circle_yellow);
+        }
+        else {
+            holder.mScoreBackgroundIv.setImageResource(R.drawable.circle_red);
+        }
+
     }
 
     @Override
@@ -65,7 +77,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
     public class MovieHolder extends RecyclerView.ViewHolder {
 
-        ImageView mAvatarIv;
+        ImageView mScoreBackgroundIv;
         TextView mTitleTv;
         TextView mScoreTv;
         TextView mYearTv;
@@ -79,8 +91,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             mYearTv = itemView.findViewById(R.id.tv_list_item_year);
             mDirectorTv = itemView.findViewById(R.id.tv_list_item_director);
             mScoreTv = itemView.findViewById(R.id.tv_list_item_score);
+            mScoreBackgroundIv = itemView.findViewById(R.id.iv_list_item_circle);
 
-            mAvatarIv = itemView.findViewById(R.id.iv_list_item);
 //            mAvatarIv.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {

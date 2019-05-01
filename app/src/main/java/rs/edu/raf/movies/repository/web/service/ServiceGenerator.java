@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
 
 //    private static final String BASE_URL = "http://dummy.restapiexample.com/api/v1/";
-    private static final String BASE_URL = "https://ghibliapi.herokuapp.com/";
+    private static final String BASE_URL = "http://ghibliapi.herokuapp.com/";
     // This is dangerous and you should always tie debug log to build type!
     // Sensitive info can leak this way!
     private static final boolean DEBUG = true;

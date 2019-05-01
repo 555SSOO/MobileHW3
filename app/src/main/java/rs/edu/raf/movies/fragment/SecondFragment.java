@@ -1,10 +1,13 @@
 package rs.edu.raf.movies.fragment;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,15 +48,64 @@ public class SecondFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
 
         mInfoTv = view.findViewById(R.id.tv_fragment_second_info);
-//        EditText editText = view.findViewById(R.id.et_fragment_second_filter);
-//        Button button = view.findViewById(R.id.btn_fragment_second);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String filter = editText.getText().toString();
-//                Toast.makeText(SecondFragment.this.getContext(), "Filter not implemented...", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        EditText editTextTitle = view.findViewById(R.id.et_fragment_second_filter_name);
+        EditText editTextYear = view.findViewById(R.id.et_fragment_second_filter_year);
+        EditText editTextScore = view.findViewById(R.id.et_fragment_second_filter_score);
+
+
+        editTextTitle.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                //
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String filter = editTextTitle.getText().toString();
+                mMainViewModel.setFilter(filter, "title");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //
+            }
+        });
+        editTextYear.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                //
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String filter = editTextYear.getText().toString();
+                mMainViewModel.setFilter(filter, "year");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //
+            }
+        });
+        editTextScore.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                //
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String filter = editTextScore.getText().toString();
+                mMainViewModel.setFilter(filter, "score");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //
+            }
+        });
+
+
         FloatingActionButton fab = view.findViewById(R.id.fab_fragment_second_refresh);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

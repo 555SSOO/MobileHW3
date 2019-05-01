@@ -8,12 +8,13 @@
     android:paddingStart="20dp"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_list_item"
-        android:layout_width="@dimen/avatar_size"
-        android:layout_height="@dimen/avatar_size"
+    <ImageView
+        android:id="@+id/iv_list_item_circle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/circle_green" />
 
     <TextView
         android:id="@+id/tv_list_item_name"
@@ -48,9 +49,10 @@
         android:id="@+id/tv_list_item_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginRight="15dp"
         tools:text="Score"
         android:textSize="15sp"/>
 
@@ -62,6 +64,6 @@
         android:layout_marginTop="8dp"
         android:layout_alignParentEnd="true"
         android:text="@string/see_more"
-        android:layout_below="@id/iv_list_item"/>
+        android:layout_below="@id/iv_list_item_circle"/>
 
 </RelativeLayout>
