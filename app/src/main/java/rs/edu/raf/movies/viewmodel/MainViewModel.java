@@ -33,16 +33,6 @@ public class MainViewModel extends AndroidViewModel {
         return mMovieMediatorLiveData;
     }
 
-    // We have to call this from second fragment's onResume
-    // because when we start the app, fragment is  observing mediatorLiveData
-    // which still doesn't have any liveData source attached to it
-    public void refreshMovies() {
-        mMovieMediatorLiveData.removeSource(mMovieLiveData);
-        mMovieLiveData = mMovieRepository.getMovies();
-        mMovieMediatorLiveData.addSource(mMovieLiveData,
-                listResource -> mMovieMediatorLiveData.setValue(listResource));
-    }
-
     public void setFilter(String filter, String filter_param) {
         filter = filter.toLowerCase();
         List<Movie> filteredList = new ArrayList<>();

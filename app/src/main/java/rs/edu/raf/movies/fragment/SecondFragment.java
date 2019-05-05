@@ -105,15 +105,6 @@ public class SecondFragment extends Fragment {
             }
         });
 
-
-        FloatingActionButton fab = view.findViewById(R.id.fab_fragment_second_refresh);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMainViewModel.refreshMovies();
-            }
-        });
-
         recyclerView = view.findViewById(R.id.rv_fragment_second);
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -163,9 +154,8 @@ public class SecondFragment extends Fragment {
                 });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mMainViewModel.refreshMovies();
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//    }
 }
